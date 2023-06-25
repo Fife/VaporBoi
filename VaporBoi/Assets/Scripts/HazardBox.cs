@@ -38,7 +38,6 @@ public class HazardBox : MonoBehaviour
             Destroy(_paper);
             _paper = null;
         }
-
     }
 
     public void turnOffTrigger()

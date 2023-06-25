@@ -13,6 +13,7 @@ public class StarterBox : MonoBehaviour
     {
         if(other.gameObject.tag != "Player") { return; }
         _hasLeft = true; 
+        other.gameObject.GetComponent<DistanceCalculator>().StartTracking();
 
     }
 }
