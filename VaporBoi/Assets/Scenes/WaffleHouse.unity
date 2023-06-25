@@ -474,7 +474,7 @@ Transform:
   m_GameObject: {fileID: 487306193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.015, z: 0.1}
+  m_LocalScale: {x: 0.25, y: 0.02, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 588236374}
@@ -585,6 +585,8 @@ GameObject:
   - component: {fileID: 588236374}
   - component: {fileID: 588236376}
   - component: {fileID: 588236375}
+  - component: {fileID: 588236378}
+  - component: {fileID: 588236377}
   m_Layer: 0
   m_Name: Newspaper
   m_TagString: Untagged
@@ -662,7 +664,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 588236378}
+        m_TargetAssemblyTypeName: ThrowCorrection, Assembly-CSharp
+        m_MethodName: GrabEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Activated:
     m_PersistentCalls:
       m_Calls: []
@@ -717,7 +731,7 @@ MonoBehaviour:
   m_SmoothPositionAmount: 5
   m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 5
   m_TightenRotation: 0.5
   m_ThrowOnDetach: 1
@@ -737,8 +751,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
-  m_ThrowAngularVelocityScale: 1
+  m_ThrowVelocityScale: 1.2
+  m_ThrowAngularVelocityScale: 1.5
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
@@ -761,6 +775,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &588236377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588236373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7170a5f72e637c245967f19be9f9a308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &588236378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588236373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 913743ba9574fe342994ef50b2686532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &612227281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,8 +1233,10 @@ GameObject:
   - component: {fileID: 1042665811}
   - component: {fileID: 1042665812}
   - component: {fileID: 1042665813}
-  - component: {fileID: 1042665814}
   - component: {fileID: 1042665815}
+  - component: {fileID: 1042665814}
+  - component: {fileID: 1042665816}
+  - component: {fileID: 1042665817}
   m_Layer: 0
   m_Name: Right Hand
   m_TagString: Untagged
@@ -1510,7 +1550,7 @@ MonoBehaviour:
   m_System: {fileID: 1743059716}
   m_TurnSpeed: 60
   m_LeftHandTurnAction:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Left Hand Turn
       m_Type: 0
@@ -1533,6 +1573,35 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!54 &1042665816
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042665810}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1042665817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042665810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b8e110a7dcb534ca915934c2548b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 1216441693330875800, guid: 26d9a22ec324f784d80a7474906395bf, type: 3}
 --- !u!1 &1146838457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2280,8 +2349,9 @@ GameObject:
   - component: {fileID: 1882435527}
   - component: {fileID: 1882435528}
   - component: {fileID: 1882435529}
-  - component: {fileID: 1882435530}
   - component: {fileID: 1882435531}
+  - component: {fileID: 1882435530}
+  - component: {fileID: 1882435532}
   m_Layer: 0
   m_Name: Left Hand
   m_TagString: Untagged
@@ -2612,7 +2682,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_RightHandMoveAction:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Right Hand Move
       m_Type: 0
@@ -2623,6 +2693,22 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!54 &1882435532
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882435526}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1922667641
 GameObject:
   m_ObjectHideFlags: 0
@@ -3058,7 +3144,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2141654419
