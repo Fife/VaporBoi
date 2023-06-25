@@ -10,6 +10,11 @@ using UnityEngine;
 
 public class CourseManager : MonoBehaviour
 {
+
+    GoalBox _goal;
+    List<PenaltyBox> _penaltyBoxes = new List<PenaltyBox>();
+    List<HazardBox> _hazardBoxes = new List<HazardBox>();
+
     enum GameState
     {
         PreGame,
@@ -17,7 +22,7 @@ public class CourseManager : MonoBehaviour
         Flight,
         PostGame
     }
-    private GameState _gameState = PreGame;
+    private GameState _gameState = GameState.PreGame;
 
     //Level Score Parameters
     //Timer
@@ -29,18 +34,27 @@ public class CourseManager : MonoBehaviour
     public int ShotCount { get { return _shotCount; } }
     public void IncrementShot(){ _shotCount++; }
 
-
     void Start() { LevelSetup(); }
 
     void LevelSetup()
     {
-        _gameState = PreGame;
+        _gameState = GameState.PreGame;
         _timer = 0f;
+
+        //Gather all the Special Hitboxes
+        _goal = GameObject.FindGameObjectWithTag("Goal").GetComponent<GoalBox>();
+
+        GameObject[] tempGO = GameObject.FindGameObjectsWithTag("Hazard");
+        foreach(GameObject go in tempGO) { _hazardBoxes.Add(GetComponent<HazardBox>()); }
+
+        tempGO = GameObject.FindGameObjectsWithTag("Penalty");
+        foreach(GameObject go in tempGO) { _penaltyBoxes.Add(GetComponent<PenaltyBox>()); }
+
     }
 
     void Update()
     {
-        if (_gameState == PlayerThrow || _gameState == Flight)
+        if (_gameState == GameState.PlayerThrow || _gameState == GameState.Flight)
         {
             //Increment Timer
             _timer += Time.deltaTime;
@@ -65,24 +79,27 @@ public class CourseManager : MonoBehaviour
 
     void AfterPlayerThrow()
     {
-        if(GoalBox.IsTriggered) 
+        if(_goal.IsTriggered) 
         {
             PostGameDisplay();
         }
-        else if(PenaltyBox.IsTriggered)
+
+        foreach(PenaltyBox penaltyBox in _penaltyBoxes)
         {
-            //Add the pentalty to the score
-            //Spawn player at the nearest valid location
+            if (penaltyBox.IsTriggered) 
+            { 
+                //Do Stuff
+            }
         }
-        else if(HazardBox.IsTriggered)
+
+        foreach(HazardBox hazardBox in _hazardBoxes)
         {
-            //Add the pentalty to the score
-            //Player stays in initial location
+            if (hazardBox.IsTriggered) 
+            { 
+                //Do Stuff
+            }
         }
-        else
-        {
-            //Nothing was Triggered, Spawn Player in front of paper
-        }
+
     }
 
 

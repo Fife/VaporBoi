@@ -31,6 +31,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LoaderManagerInstance: {fileID: -7650199914284754636}
   m_InitManagerOnStart: 1
+--- !u!114 &-3463851770129614076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c3631f5e58749a59194e0cf6baf6d5, type: 3}
+  m_Name: Standalone Providers
+  m_EditorClassIdentifier: 
+  m_RequiresSettingsUpdate: 0
+  m_AutomaticLoading: 0
+  m_AutomaticRunning: 0
+  m_Loaders:
+  - {fileID: 11400000, guid: 0962cf438e8d73f46bb430cf4798a94c, type: 2}
+  - {fileID: 11400000, guid: ab8707424b1f6f14496c79123225fa9f, type: 2}
 --- !u!114 &-2949516769068307401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,12 +79,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2dc886499c26824283350fa532d087d, type: 3}
   m_Name: XRGeneralSettingsPerBuildTarget
   m_EditorClassIdentifier: 
-feature-throw-and-deliver
-  Keys: 0100000007000000
+  Keys: 01000000
   Values:
-  - {fileID: 1195495644407557768}
-  - {fileID: -6407316178274250355}
-main
+  - {fileID: 1757567789240171613}
 --- !u!114 &1195495644407557768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,6 +95,20 @@ MonoBehaviour:
   m_Name: Standalone Settings
   m_EditorClassIdentifier: 
   m_LoaderManagerInstance: {fileID: -2949516769068307401}
+  m_InitManagerOnStart: 1
+--- !u!114 &1757567789240171613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d236b7d11115f2143951f1e14045df39, type: 3}
+  m_Name: Standalone Settings
+  m_EditorClassIdentifier: 
+  m_LoaderManagerInstance: {fileID: -3463851770129614076}
   m_InitManagerOnStart: 1
 --- !u!114 &5340814055272195012
 MonoBehaviour:

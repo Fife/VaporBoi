@@ -7,8 +7,8 @@ public class GoalBox : MonoBehaviour
     private float _timerThreshold = 1f;
     private float _timer; 
     private GameObject _paper = null; 
-    private bool isCompleted = false;
-    public bool IsCompleted { get { return isCompleted; } }
+    private bool _isTriggered = false;
+    public bool IsTriggered { get { return _isTriggered; } }
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +32,9 @@ public class GoalBox : MonoBehaviour
         if (_timer > _timerThreshold)
         {
             _timer = 0f;
-            isCompleted = true;
+            _isTriggered = true;
             //Debug.Log("Level Completed!");
         }
-
     }
 
     void OnTriggerEnter(Collider other)
