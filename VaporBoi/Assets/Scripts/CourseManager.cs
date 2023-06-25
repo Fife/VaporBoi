@@ -18,8 +18,7 @@ public class CourseManager : MonoBehaviour
     enum GameState
     {
         PreGame,
-        PlayerThrow,
-        Flight,
+        InPlay,
         PostGame
     }
     private GameState _gameState = GameState.PreGame;
@@ -38,70 +37,94 @@ public class CourseManager : MonoBehaviour
 
     void LevelSetup()
     {
-        _gameState = GameState.PreGame;
         _timer = 0f;
 
         //Gather all the Special Hitboxes
         _goal = GameObject.FindGameObjectWithTag("Goal").GetComponent<GoalBox>();
 
         GameObject[] tempGO = GameObject.FindGameObjectsWithTag("Hazard");
-        foreach(GameObject go in tempGO) { _hazardBoxes.Add(GetComponent<HazardBox>()); }
+        foreach(GameObject go in tempGO) { _hazardBoxes.Add(go.GetComponent<HazardBox>()); }
 
         tempGO = GameObject.FindGameObjectsWithTag("Penalty");
-        foreach(GameObject go in tempGO) { _penaltyBoxes.Add(GetComponent<PenaltyBox>()); }
+        foreach(GameObject go in tempGO) { _penaltyBoxes.Add(go.GetComponent<PenaltyBox>()); }
+
+        _gameState = GameState.InPlay;
 
     }
 
     void Update()
     {
-        if (_gameState == GameState.PlayerThrow || _gameState == GameState.Flight)
+        if (_gameState == GameState.InPlay)
         {
             //Increment Timer
             _timer += Time.deltaTime;
 
+            //Determine Level State
+            LevelLogic();
         }
     }
 
 
     // Displays the total score of the player for the hole, golf style. Is also  
     // displays a UI that lets the player continue or quit. 
-    void PostGameDisplay() 
+    void PostGameDisplayTrigger() 
     {
-
+        //Enable Post game menu
     }
 
     //Sets any manager specific data needed for the next level.
     void LevelCleanup()
     {
-
+        //Do Stuff (May or may not need this function)
     }  
+
+    void HazardDisplay()
+    {
+        //Enable Hazard Display Indicating that the Paper went into a Hazard
+    }
+
+    void PenaltyDisplay()
+    {
+        //Enable Penalty Display Indicating that the Paper went into a Hazard
+    }
     
 
-    void AfterPlayerThrow()
+    void LevelLogic()
     {
         if(_goal.IsTriggered) 
         {
-            PostGameDisplay();
+            //Player wins, hole is over
+            PostGameDisplayTrigger();
+            _gameState = GameState.PostGame;
+            Debug.Log("Win Display");
         }
-
+        
+        //Check for any triggered penalty or hazard boxes
         foreach(PenaltyBox penaltyBox in _penaltyBoxes)
         {
+            if (penaltyBox == null) { break; }
             if (penaltyBox.IsTriggered) 
             { 
-                //Do Stuff
+                //Add Penalty Shot
+                _shotCount++;
+                penaltyBox.turnOffTrigger();
+                PenaltyDisplay();
+                Debug.Log("Penalty Display");
             }
         }
 
         foreach(HazardBox hazardBox in _hazardBoxes)
         {
+            if (hazardBox == null) { break; }
             if (hazardBox.IsTriggered) 
             { 
-                //Do Stuff
+                //Add Penalty Shot
+                _shotCount++;
+                hazardBox.turnOffTrigger();
+                HazardDisplay();
+                Debug.Log("Hazard Display");
             }
         }
-
     }
-
-
 }
 

@@ -24,6 +24,6 @@ public class DistanceCalculator : MonoBehaviour
 
         distance += (_currentCoord - _lastCoord).magnitude;
         _lastCoord = _currentCoord;
-        Debug.Log(distance);
+
     }
 }

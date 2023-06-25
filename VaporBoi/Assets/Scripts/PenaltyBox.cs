@@ -34,8 +34,14 @@ public class PenaltyBox : MonoBehaviour
             _timer = 0f;
             _isTriggered = true;
             //Debug.Log("Penalty!");
+            _paper = null;
         }
 
+    }
+
+    public void turnOffTrigger()
+    {
+        _isTriggered = false;
     }
 
     void OnTriggerEnter(Collider other)
