@@ -62,11 +62,6 @@ MonoBehaviour:
   m_Name: XRGeneralSettingsPerBuildTarget
   m_EditorClassIdentifier: 
 feature-throw-and-deliver
-  Keys: 010000000d000000
-  Values:
-  - {fileID: 1195495644407557768}
-  - {fileID: 5340814055272195012}
-=======
   Keys: 0100000007000000
   Values:
   - {fileID: 1195495644407557768}
