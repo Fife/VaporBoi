@@ -33,7 +33,7 @@ public class SpawnNewspaper : MonoBehaviour
         if (_buttonDown == true && _lastPress == false) 
         {
             //Spawn Prefab
-            Vector3 offset = new Vector3(0,0.05f,0);
+            Vector3 offset = new Vector3(0,0.1f,0);
             offset += transform.position;
             Rigidbody newspaper = Instantiate(_prefab, offset, Quaternion.identity).GetComponent<Rigidbody>();
 
