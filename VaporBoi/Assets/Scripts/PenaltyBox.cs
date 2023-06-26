@@ -12,6 +12,7 @@ public class PenaltyBox : MonoBehaviour
 
     private float _enteredDistance, _exitedDistance = 0f;
     private float _totalDistance = 0f;
+    public float PenaltyDistance { get { return _totalDistance; } }
 
 
     // Start is called before the first frame update

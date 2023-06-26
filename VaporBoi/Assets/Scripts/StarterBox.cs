@@ -15,10 +15,8 @@ public class StarterBox : MonoBehaviour
         
         if(_hasLeft == false)
         {
-            Debug.Log("Left Zone!");
-          
-            GameObject.FindGameObjectWithTag("CourseManager").GetComponent<CourseManager>().StartGame();
             Debug.Log("Starting Game!");
+            GameObject.FindGameObjectWithTag("CourseManager").GetComponent<CourseManager>().StartGame();
             _hasLeft = true; 
             GameObject.FindGameObjectWithTag("Player").GetComponent<DistanceCalculator>().StartTracking();
         }

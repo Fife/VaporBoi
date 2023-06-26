@@ -14,7 +14,8 @@ public class CourseManager : MonoBehaviour
     {
         PreGame,
         InPlay,
-        PostGame
+        PostGame,
+        Ended
     }
     private GameState _gameState = GameState.PreGame;
 
@@ -28,16 +29,19 @@ public class CourseManager : MonoBehaviour
     public int ShotCount { get { return _shotCount; } }
 
     //Distance Tracker
-    private float _distance = 0f;
-    private float Distance { get { return _distance; } }
+    private float _travelDistance = 0f;
+    public float TravelDistance { get { return _travelDistance; } }
+
+    private float _penaltyDistance = 0f;
+    public float PenaltyDistance { get { return _penaltyDistance; } }
 
     //Proximity to bullseye
     private float _bullseyeProximity = 0f;
-    private float BullseyeProximity { get { return _bullseyeProximity; } }
+    public float BullseyeProximity { get { return _bullseyeProximity; } }
 
     //Papers Used
     private int _papersUsed = 1;
-    private int PapersUsed { get { return _papersUsed; } }
+    public int PapersUsed { get { return _papersUsed; } }
 
 
     //Important Level Objects
@@ -53,19 +57,6 @@ public class CourseManager : MonoBehaviour
         LevelSetup(); 
     }
 
-    public void IncrementShot()
-    { 
-        _shotCount++;
-        //Debug.Log("Shot taken");
-        //Debug.Log(_shotCount);
-    }
-
-    public void IncrementPapers()
-    { 
-        _papersUsed++;
-        //Debug.Log("Paper Spawned");
-        //Debug.Log(_papersUsed);
-    }
 
     void LevelSetup()
     {
@@ -82,54 +73,59 @@ public class CourseManager : MonoBehaviour
         foreach(GameObject go in tempGO) { _penaltyBoxes.Add(go.GetComponent<PenaltyBox>()); }
     }
 
-    public void StartGame()
-    {
-        _gameState = GameState.InPlay;
-    }
-
     void Update()
     {
-        if (_gameState == GameState.InPlay)
+        switch(_gameState)
         {
-            //Increment Timer
-            _timer += Time.deltaTime;
-
-            //Determine Level State
-            LevelLogic();
-
-            //Get Updated Player Info
-            _distance = _player.GetComponent<DistanceCalculator>().Distance;
-            _shotCount = _player.GetComponent<ThrowTracker>().NumThrows;
-        }   
+            case GameState.InPlay:
+                //Increment Timer
+                _timer += Time.deltaTime;
+                //Determine Level State
+                LevelLogic();
+                //Get Updated Player Info
+                _travelDistance = _player.GetComponent<DistanceCalculator>().Distance;
+                _shotCount = _player.GetComponent<ThrowTracker>().NumThrows;
+                break;
+            case GameState.PostGame:
+                CalculateScore();
+                PostGameDisplayTrigger();
+                _gameState = GameState.Ended;
+                break;
+            default:
+                break;
+        }
     }
-
 
     // Displays the total score of the player for the hole, golf style. Is also  
     // displays a UI that lets the player continue or quit. 
     void PostGameDisplayTrigger() 
     {
-        //Enable Post game menu
+        //Enable Post game menu   
+        Debug.Log("Post Game Display");
+        Debug.Log("Shots Taken: " + _shotCount);
+        Debug.Log("Distance Traveled: " + _travelDistance);
+        Debug.Log("Time Taken: " + _timer);
+        Debug.Log("Papers Used: " + _papersUsed);
+        Debug.Log("Distance From Bullseye: " + _bullseyeProximity);
     }
 
     //Sets any manager specific data needed for the next level.
-    void LevelCleanup()
+    void CalculateScore()
     {
         //Do Stuff (May or may not need this function)
+        foreach(PenaltyBox penaltyBox in _penaltyBoxes) {_penaltyDistance += penaltyBox.PenaltyDistance; }   
     }  
 
     void HazardDisplay()
     {
         //Enable Hazard Display Indicating that the Paper went into a Hazard
+        Debug.Log("Hazard Display");
     }
 
     void PenaltyDisplay()
     {
         //Enable Penalty Display Indicating that the Paper went into a Hazard
-    }
-    
-    public void SetBullseyeProximity(float distance)
-    {
-        _bullseyeProximity = distance;
+        Debug.Log("Penalty Display");
     }
 
     void LevelLogic()
@@ -139,13 +135,6 @@ public class CourseManager : MonoBehaviour
             //Player wins, hole is over
             PostGameDisplayTrigger();
             _gameState = GameState.PostGame;
-            Debug.Log("Win Display");
-            Debug.Log("Shots Taken: " + _shotCount);
-            Debug.Log("Distance Traveled: " + _distance);
-            Debug.Log("Time Taken: " + _timer);
-            Debug.Log("Papers Used: " + _papersUsed);
-            Debug.Log("Distance From Bullseye: " + _bullseyeProximity);
-
         }
         
         //Check for any triggered penalty or hazard boxes
@@ -158,7 +147,6 @@ public class CourseManager : MonoBehaviour
                 _shotCount++;
                 penaltyBox.turnOffTrigger();
                 PenaltyDisplay();
-                Debug.Log("Penalty Display");
             }
         }
 
@@ -171,9 +159,32 @@ public class CourseManager : MonoBehaviour
                 _shotCount++;
                 hazardBox.turnOffTrigger();
                 HazardDisplay();
-                Debug.Log("Hazard Display");
             }
         }
+    }
+
+    public void SetBullseyeProximity(float distance)
+    {
+        _bullseyeProximity = distance;
+    }
+
+    public void StartGame()
+    {
+        _gameState = GameState.InPlay;
+    }
+
+    public void IncrementShot()
+    { 
+        _shotCount++;
+        //Debug.Log("Shot taken");
+        //Debug.Log(_shotCount);
+    }
+
+    public void IncrementPapers()
+    { 
+        _papersUsed++;
+        //Debug.Log("Paper Spawned");
+        //Debug.Log(_papersUsed);
     }
 }
 
