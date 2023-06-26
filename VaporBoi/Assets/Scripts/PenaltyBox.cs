@@ -10,6 +10,11 @@ public class PenaltyBox : MonoBehaviour
     private bool _isTriggered = false;
     public bool IsTriggered { get { return _isTriggered; } }
 
+    private float _enteredDistance, _exitedDistance = 0f;
+    private float _totalDistance = 0f;
+    public float PenaltyDistance { get { return _totalDistance; } }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,17 +39,32 @@ public class PenaltyBox : MonoBehaviour
             _timer = 0f;
             _isTriggered = true;
             //Debug.Log("Penalty!");
+            _paper = null;
         }
 
     }
 
+    public void turnOffTrigger()
+    {
+        _isTriggered = false;
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag != "Paper") { return; }
-        _paper = other.gameObject;
+        if(other.gameObject.tag == "Paper") { _paper = other.gameObject; }
+        if(other.gameObject.tag == "Player") 
+        { 
+            _enteredDistance = other.gameObject.GetComponent<DistanceCalculator>().Distance;
+        }
+        
     }
     void OnTriggerExit(Collider other)
     {
         if(other.gameObject == _paper) { _paper = null; }
+        if(other.gameObject.tag == "Player") 
+        { 
+            _exitedDistance = other.gameObject.GetComponent<DistanceCalculator>().Distance;
+            _totalDistance = _exitedDistance - _enteredDistance;
+        }
     }
 }

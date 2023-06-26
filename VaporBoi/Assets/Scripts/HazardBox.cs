@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OutBox : MonoBehaviour
+public class HazardBox : MonoBehaviour
 {
     private float _timerThreshold = 1f;
     private float _timer; 
@@ -34,10 +34,16 @@ public class OutBox : MonoBehaviour
             _timer = 0f;
             _isTriggered = true;
             Debug.Log("Paper Lost!");
-        }
 
+            Destroy(_paper);
+            _paper = null;
+        }
     }
 
+    public void turnOffTrigger()
+    {
+        _isTriggered = false;
+    }
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag != "Paper") { return; }
@@ -46,6 +52,7 @@ public class OutBox : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         if(other.gameObject == _paper) { _paper = null; }
+        _isTriggered = false;
     }
 
 }

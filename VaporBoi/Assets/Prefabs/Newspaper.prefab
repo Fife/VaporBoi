@@ -141,7 +141,6 @@ GameObject:
   - component: {fileID: 1216441693330875802}
   - component: {fileID: 1216441693330875799}
   - component: {fileID: 1216441693330875796}
-  - component: {fileID: -3467856720760880294}
   m_Layer: 0
   m_Name: Newspaper
   m_TagString: Paper
@@ -239,18 +238,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1216441693330875799}
         m_TargetAssemblyTypeName: ThrowCorrection, Assembly-CSharp
         m_MethodName: GrabEnd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: -3467856720760880294}
-        m_TargetAssemblyTypeName: ThrowTracker, Assembly-CSharp
-        m_MethodName: IncrementThrows
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -364,17 +351,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7170a5f72e637c245967f19be9f9a308, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-3467856720760880294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216441693330875800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62abae03d67e1cb4dab54b1f66dbf6ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

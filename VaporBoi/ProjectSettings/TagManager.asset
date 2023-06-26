@@ -8,6 +8,7 @@ TagManager:
   - Goal
   - Hazard
   - Penalty
+  - CourseManager
   layers:
   - Default
   - TransparentFX

@@ -22,21 +22,25 @@ public class SpawnNewspaper : MonoBehaviour
 
         if(m_device.Count == 1)
         {
-            CheckPrimary(m_device[0]);
+            CheckPrimaryButton(m_device[0]);
         }
 
     }
 
-    private void CheckPrimary(InputDevice device)
+    private void CheckPrimaryButton(InputDevice device)
     {
         device.TryGetFeatureValue(CommonUsages.primaryButton, out _buttonDown);
         if (_buttonDown == true && _lastPress == false) 
         {
             //Spawn Prefab
             Vector3 offset = new Vector3(0,0.1f,0);
-            offset += transform.position;
+            offset += transform.position;            
             Rigidbody newspaper = Instantiate(_prefab, offset, Quaternion.identity).GetComponent<Rigidbody>();
-
+            
+            //Let Course Manager Know we Spawned A Paper
+            GameObject.FindGameObjectWithTag("CourseManager").GetComponent<CourseManager>().IncrementPapers();
+            
+            //Add Some Velocity so it "pops" up
             newspaper.velocity = new Vector3(0,3f,0);
         }
         _lastPress = _buttonDown;
