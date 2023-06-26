@@ -6,7 +6,10 @@ public class GoalBox : MonoBehaviour
 {
     private float _timerThreshold = 1f;
     private float _timer; 
-    private GameObject _paper = null; 
+    private GameObject _paper = null;
+    private GameObject _bullseye = null; 
+    private float _distanceFromBullseye = 100f;
+
     private bool _isTriggered = false;
     public bool IsTriggered { get { return _isTriggered; } }
 
@@ -14,6 +17,7 @@ public class GoalBox : MonoBehaviour
     void Start()
     {
         _timer = 0f;
+        _bullseye = GameObject.Find("Bullseye");
     }
 
     // Update is called once per frame
@@ -33,6 +37,8 @@ public class GoalBox : MonoBehaviour
         {
             _timer = 0f;
             _isTriggered = true;
+            _distanceFromBullseye = (_paper.transform.position - _bullseye.transform.position).magnitude;
+            GameObject.FindGameObjectWithTag("CourseManager").GetComponent<CourseManager>().SetBullseyeProximity(_distanceFromBullseye);
             //Debug.Log("Level Completed!");
         }
     }

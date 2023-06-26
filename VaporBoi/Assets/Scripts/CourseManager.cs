@@ -31,6 +31,10 @@ public class CourseManager : MonoBehaviour
     private float _distance = 0f;
     private float Distance { get { return _distance; } }
 
+    //Proximity to bullseye
+    private float _bullseyeProximity = 0f;
+    private float BullseyeProximity { get { return _bullseyeProximity; } }
+
     //Papers Used
     private int _papersUsed = 1;
     private int PapersUsed { get { return _papersUsed; } }
@@ -123,6 +127,10 @@ public class CourseManager : MonoBehaviour
         //Enable Penalty Display Indicating that the Paper went into a Hazard
     }
     
+    public void SetBullseyeProximity(float distance)
+    {
+        _bullseyeProximity = distance;
+    }
 
     void LevelLogic()
     {
@@ -136,6 +144,7 @@ public class CourseManager : MonoBehaviour
             Debug.Log("Distance Traveled: " + _distance);
             Debug.Log("Time Taken: " + _timer);
             Debug.Log("Papers Used: " + _papersUsed);
+            Debug.Log("Distance From Bullseye: " + _bullseyeProximity);
 
         }
         
