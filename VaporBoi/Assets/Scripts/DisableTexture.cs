@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
 public class DisableTexture : MonoBehaviour{
-   void Start () 
-   {
+
+    [SerializeField] bool enableDebugTextures = false; 
+
+    void Start () 
+    {
+        if (enableDebugTextures) { return; }
+
         if(Application.isPlaying)
         {
             GetComponent<Renderer>().enabled = false;
