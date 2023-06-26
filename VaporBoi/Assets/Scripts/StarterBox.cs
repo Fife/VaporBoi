@@ -10,10 +10,17 @@ public class StarterBox : MonoBehaviour
     void Start() { _hasLeft = false; }
 
     void OnTriggerExit(Collider other)
-    {
-        if(other.gameObject.tag != "Player") { return; }
-        _hasLeft = true; 
-        other.gameObject.GetComponent<DistanceCalculator>().StartTracking();
-
+    {   
+        //if(other.transform.gameObject.tag != "Player" || other.transform.gameObject.tag != "Paper") { return; }
+        
+        if(_hasLeft == false)
+        {
+            Debug.Log("Left Zone!");
+          
+            GameObject.FindGameObjectWithTag("CourseManager").GetComponent<CourseManager>().StartGame();
+            Debug.Log("Starting Game!");
+            _hasLeft = true; 
+            GameObject.FindGameObjectWithTag("Player").GetComponent<DistanceCalculator>().StartTracking();
+        }
     }
 }

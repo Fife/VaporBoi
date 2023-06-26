@@ -10,11 +10,6 @@ using UnityEngine;
 
 public class CourseManager : MonoBehaviour
 {
-
-    GoalBox _goal;
-    List<PenaltyBox> _penaltyBoxes = new List<PenaltyBox>();
-    List<HazardBox> _hazardBoxes = new List<HazardBox>();
-
     enum GameState
     {
         PreGame,
@@ -31,13 +26,47 @@ public class CourseManager : MonoBehaviour
     //Shot Counter.
     private int _shotCount = 0;
     public int ShotCount { get { return _shotCount; } }
-    public void IncrementShot(){ _shotCount++; }
 
-    void Start() { LevelSetup(); }
+    //Distance Tracker
+    private float _distance = 0f;
+    private float Distance { get { return _distance; } }
+
+    //Papers Used
+    private int _papersUsed = 1;
+    private int PapersUsed { get { return _papersUsed; } }
+
+
+    //Important Level Objects
+    private GoalBox _goal;
+    private List<PenaltyBox> _penaltyBoxes = new List<PenaltyBox>();
+    private List<HazardBox> _hazardBoxes = new List<HazardBox>();
+    private GameObject _player; 
+
+    void Awake() 
+    { 
+        _timer = 0f;
+        _shotCount = 0;
+        LevelSetup(); 
+    }
+
+    public void IncrementShot()
+    { 
+        _shotCount++;
+        //Debug.Log("Shot taken");
+        //Debug.Log(_shotCount);
+    }
+
+    public void IncrementPapers()
+    { 
+        _papersUsed++;
+        //Debug.Log("Paper Spawned");
+        //Debug.Log(_papersUsed);
+    }
 
     void LevelSetup()
     {
-        _timer = 0f;
+        //Gather the Player
+        _player = GameObject.FindGameObjectWithTag("Player");
 
         //Gather all the Special Hitboxes
         _goal = GameObject.FindGameObjectWithTag("Goal").GetComponent<GoalBox>();
@@ -47,9 +76,11 @@ public class CourseManager : MonoBehaviour
 
         tempGO = GameObject.FindGameObjectsWithTag("Penalty");
         foreach(GameObject go in tempGO) { _penaltyBoxes.Add(go.GetComponent<PenaltyBox>()); }
+    }
 
+    public void StartGame()
+    {
         _gameState = GameState.InPlay;
-
     }
 
     void Update()
@@ -61,7 +92,11 @@ public class CourseManager : MonoBehaviour
 
             //Determine Level State
             LevelLogic();
-        }
+
+            //Get Updated Player Info
+            _distance = _player.GetComponent<DistanceCalculator>().Distance;
+            _shotCount = _player.GetComponent<ThrowTracker>().NumThrows;
+        }   
     }
 
 
@@ -97,6 +132,11 @@ public class CourseManager : MonoBehaviour
             PostGameDisplayTrigger();
             _gameState = GameState.PostGame;
             Debug.Log("Win Display");
+            Debug.Log("Shots Taken: " + _shotCount);
+            Debug.Log("Distance Traveled: " + _distance);
+            Debug.Log("Time Taken: " + _timer);
+            Debug.Log("Papers Used: " + _papersUsed);
+
         }
         
         //Check for any triggered penalty or hazard boxes

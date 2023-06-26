@@ -5,6 +5,8 @@ using UnityEngine;
 public class DistanceCalculator : MonoBehaviour
 {
     private float _distance = 0f;
+    public float Distance { get { return _distance; } }
+    
     private Vector3 _lastCoord, _currentCoord;
     private bool _isTracking = false; 
     // Start is called before the first frame update
