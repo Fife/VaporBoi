@@ -11,6 +11,7 @@ TagManager:
   - CourseManager
   - Window
   - Breakable
+  - Hand
   layers:
   - Default
   - TransparentFX
