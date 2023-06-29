@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 8398956735505658502}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 1.786, y: 0, z: 3.882}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.40000004, y: 0.4, z: 0.40000004}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8398956736319010368}
@@ -47,8 +47,8 @@ GameObject:
   - component: {fileID: 8398956736319010373}
   - component: {fileID: 8398956736319010372}
   m_Layer: 0
-  m_Name: BO Hitbox
-  m_TagString: Untagged
+  m_Name: _BO Hitbox
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
