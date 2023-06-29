@@ -59,7 +59,7 @@ public class CourseManager : MonoBehaviour
     private List<BreakableObject> _breakableObjects = new List<BreakableObject>();
     private GameObject _player; 
 
-    void Awake() 
+    void Start() 
     { 
         _timer = 0f;
         _shotCount = 0;
@@ -124,13 +124,15 @@ public class CourseManager : MonoBehaviour
         Debug.Log("Distance From Bullseye: " + _bullseyeProximity);
         Debug.Log("Objects Destroyed: " + _objectsDestroyed);
         Debug.Log("Window Delivery: " + _windowDelivery);
+        Debug.Log("Penalty Distance: " + _penaltyDistance);
     }
 
     //Sets any manager specific data needed for the next level.
     void CalculateScore()
     {
         //Get distance traveled in penalty boxes
-        foreach(PenaltyBox penaltyBox in _penaltyBoxes) {_penaltyDistance += penaltyBox.PenaltyDistance; }
+        foreach(PenaltyBox penaltyBox in _penaltyBoxes) 
+        {_penaltyDistance += penaltyBox.PenaltyDistance; }
         
         //Get number of breakable objects the player broke
         foreach(BreakableObject bo in _breakableObjects) 
@@ -167,7 +169,7 @@ public class CourseManager : MonoBehaviour
             if (penaltyBox.IsTriggered) 
             { 
                 //Add Penalty Shot
-                _shotCount++;
+                //_shotCount++;
                 penaltyBox.turnOffTrigger();
                 PenaltyDisplay();
             }
