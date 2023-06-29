@@ -9,6 +9,8 @@ TagManager:
   - Hazard
   - Penalty
   - CourseManager
+  - Window
+  - Breakable
   layers:
   - Default
   - TransparentFX

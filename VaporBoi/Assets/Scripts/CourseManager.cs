@@ -40,14 +40,23 @@ public class CourseManager : MonoBehaviour
     public float BullseyeProximity { get { return _bullseyeProximity; } }
 
     //Papers Used
-    private int _papersUsed = 1;
+    private int _papersUsed = 0;
     public int PapersUsed { get { return _papersUsed; } }
 
+    //Gnomes Smashed 
+    private int _objectsDestroyed = 0;
+    public int GnomesSmashed { get { return _objectsDestroyed; } }
+
+    //Window Delivery?
+    private bool _windowDelivery = false;
+    public bool WindowDelivery { get { return _windowDelivery; } }
 
     //Important Level Objects
     private GoalBox _goal;
     private List<PenaltyBox> _penaltyBoxes = new List<PenaltyBox>();
     private List<HazardBox> _hazardBoxes = new List<HazardBox>();
+    private List<WindowBox> _windowBoxes = new List<WindowBox>();
+    private List<BreakableObject> _breakableObjects = new List<BreakableObject>();
     private GameObject _player; 
 
     void Awake() 
@@ -71,6 +80,12 @@ public class CourseManager : MonoBehaviour
 
         tempGO = GameObject.FindGameObjectsWithTag("Penalty");
         foreach(GameObject go in tempGO) { _penaltyBoxes.Add(go.GetComponent<PenaltyBox>()); }
+
+        tempGO = GameObject.FindGameObjectsWithTag("Window");
+        foreach(GameObject go in tempGO) { _windowBoxes.Add(go.GetComponent<WindowBox>()); }
+
+        tempGO = GameObject.FindGameObjectsWithTag("Breakable");
+        foreach(GameObject go in tempGO) { _breakableObjects.Add(go.GetComponent<BreakableObject>()); }
     }
 
     void Update()
@@ -107,13 +122,21 @@ public class CourseManager : MonoBehaviour
         Debug.Log("Time Taken: " + _timer);
         Debug.Log("Papers Used: " + _papersUsed);
         Debug.Log("Distance From Bullseye: " + _bullseyeProximity);
+        Debug.Log("Objects Destroyed: " + _objectsDestroyed);
+        Debug.Log("Window Delivery: " + _windowDelivery);
     }
 
     //Sets any manager specific data needed for the next level.
     void CalculateScore()
     {
-        //Do Stuff (May or may not need this function)
-        foreach(PenaltyBox penaltyBox in _penaltyBoxes) {_penaltyDistance += penaltyBox.PenaltyDistance; }   
+        //Get distance traveled in penalty boxes
+        foreach(PenaltyBox penaltyBox in _penaltyBoxes) {_penaltyDistance += penaltyBox.PenaltyDistance; }
+        
+        //Get number of breakable objects the player broke
+        foreach(BreakableObject bo in _breakableObjects) 
+        {
+            if (bo.IsTriggered) { _objectsDestroyed++; }
+        }   
     }  
 
     void HazardDisplay()
@@ -137,7 +160,7 @@ public class CourseManager : MonoBehaviour
             _gameState = GameState.PostGame;
         }
         
-        //Check for any triggered penalty or hazard boxes
+        //Check for any triggered penalty or hazard boxes or windows
         foreach(PenaltyBox penaltyBox in _penaltyBoxes)
         {
             if (penaltyBox == null) { break; }
@@ -159,6 +182,17 @@ public class CourseManager : MonoBehaviour
                 _shotCount++;
                 hazardBox.turnOffTrigger();
                 HazardDisplay();
+            }
+        }
+
+        foreach(WindowBox window in _windowBoxes)
+        {
+            if (window == null) { break; }
+            if (window.IsTriggered) 
+            { 
+                _windowDelivery = true;
+                PostGameDisplayTrigger();
+                _gameState = GameState.PostGame;
             }
         }
     }
