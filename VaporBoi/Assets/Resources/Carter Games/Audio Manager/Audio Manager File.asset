@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ae0c8eafd7263429865ae0f6fe29e6, type: 3}
+  m_Name: Audio Manager File
+  m_EditorClassIdentifier: 
+  tabPos: 0
+  audioMixer:
+  - {fileID: 0}
+  soundPrefab: {fileID: 322064603624763291, guid: f97cb5ab9dca8bd488116e0ffc057e10, type: 3}
+  isPopulated: 1
+  directory:
+  - Assets/Music
+  library:
+  - key: Drifting...
+    value: {fileID: 8300000, guid: ef308442684ee164aa4f554eeef84a7f, type: 3}
+  - key: Floating
+    value: {fileID: 8300000, guid: 9135221a596b48e4ca284c1ede75bf00, type: 3}
+  - key: Reaching
+    value: {fileID: 8300000, guid: 4b2e59df1e679de4fa0fada611b03977, type: 3}
+  - key: Seeking
+    value: {fileID: 8300000, guid: 5a9644a662ff03d41ae149341d834e92, type: 3}
