@@ -123,3 +123,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d39e85506b79d49bd6701efab204ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableDebugTextures: 0
