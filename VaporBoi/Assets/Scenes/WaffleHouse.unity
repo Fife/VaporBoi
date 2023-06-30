@@ -340,7 +340,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-109300
+  m_Name: pb_Mesh-44474
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -646,16 +646,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6233547268168962955, guid: 17c9a8a216da38d44b6f6a895e37e925, type: 3}
-      propertyPath: enableDebugTextures
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7133646984491697168, guid: 17c9a8a216da38d44b6f6a895e37e925, type: 3}
       propertyPath: m_Name
       value: Penalty Box (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6233547268168962955, guid: 17c9a8a216da38d44b6f6a895e37e925, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17c9a8a216da38d44b6f6a895e37e925, type: 3}
 --- !u!4 &135723255 stripped
 Transform:
@@ -1679,10 +1674,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5621971033483370990, guid: ffff85c518b877b4e8dabc2d78e3b138, type: 3}
-      propertyPath: enableDebugTextures
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffff85c518b877b4e8dabc2d78e3b138, type: 3}
 --- !u!4 &1727972674 stripped
@@ -2249,17 +2240,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1007048589}
     m_Modifications:
-    - target: {fileID: 306823638210255432, guid: bf33e1e9317ae69408ae3726665bcf12, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 306823638210255436, guid: bf33e1e9317ae69408ae3726665bcf12, type: 3}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 306823638210255436, guid: bf33e1e9317ae69408ae3726665bcf12, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.1344633
       objectReference: {fileID: 0}
     - target: {fileID: 306823638210255436, guid: bf33e1e9317ae69408ae3726665bcf12, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2304,14 +2287,6 @@ PrefabInstance:
     - target: {fileID: 306823638210255475, guid: bf33e1e9317ae69408ae3726665bcf12, type: 3}
       propertyPath: m_Name
       value: StarterBox
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125055622126971635, guid: bf33e1e9317ae69408ae3726665bcf12, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125055622126971635, guid: bf33e1e9317ae69408ae3726665bcf12, type: 3}
-      propertyPath: enableDebugTextures
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf33e1e9317ae69408ae3726665bcf12, type: 3}
@@ -2382,14 +2357,6 @@ PrefabInstance:
     - target: {fileID: 5524180662054038224, guid: 581fa200de0ff294ea707ac58c3dbfba, type: 3}
       propertyPath: m_RootOrder
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5524180662054038224, guid: 581fa200de0ff294ea707ac58c3dbfba, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.40000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 5524180662054038224, guid: 581fa200de0ff294ea707ac58c3dbfba, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.40000004
       objectReference: {fileID: 0}
     - target: {fileID: 5524180662054038224, guid: 581fa200de0ff294ea707ac58c3dbfba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2553,10 +2520,6 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1677794232}
-    - target: {fileID: 2717869778691992636, guid: 98e400f7626d6d0499e131bca3f36c44, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6ea61d98289506b47aab0a47a82794dc, type: 2}
     - target: {fileID: 2717869778820005143, guid: 98e400f7626d6d0499e131bca3f36c44, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -2618,10 +2581,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5621971033483370990, guid: ffff85c518b877b4e8dabc2d78e3b138, type: 3}
-      propertyPath: enableDebugTextures
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffff85c518b877b4e8dabc2d78e3b138, type: 3}
 --- !u!1001 &5208538641741715666
@@ -2673,10 +2632,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2901150100987578578, guid: 17c9a8a216da38d44b6f6a895e37e925, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6233547268168962955, guid: 17c9a8a216da38d44b6f6a895e37e925, type: 3}
-      propertyPath: enableDebugTextures
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7133646984491697168, guid: 17c9a8a216da38d44b6f6a895e37e925, type: 3}
@@ -2764,14 +2719,6 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4445937730766332504, guid: 37bdac85bf598a5409388958c1e9f4b1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.40000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 4445937730766332504, guid: 37bdac85bf598a5409388958c1e9f4b1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.40000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 4445937730766332504, guid: 37bdac85bf598a5409388958c1e9f4b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
       objectReference: {fileID: 0}
@@ -2829,14 +2776,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1007048589}
     m_Modifications:
-    - target: {fileID: 3780498989275003531, guid: 3e6800d273d56ac448a783921ff85731, type: 3}
-      propertyPath: enableDebugTextures
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8026581402315414519, guid: 3e6800d273d56ac448a783921ff85731, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6ea61d98289506b47aab0a47a82794dc, type: 2}
     - target: {fileID: 8026581402315414521, guid: 3e6800d273d56ac448a783921ff85731, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2898,21 +2837,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable Gnome 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8398956735505658502, guid: 4541fce58607ebf40b449b3e590460ea, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 8398956735505658503, guid: 4541fce58607ebf40b449b3e590460ea, type: 3}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8398956735505658503, guid: 4541fce58607ebf40b449b3e590460ea, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.40000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 8398956735505658503, guid: 4541fce58607ebf40b449b3e590460ea, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.40000004
       objectReference: {fileID: 0}
     - target: {fileID: 8398956735505658503, guid: 4541fce58607ebf40b449b3e590460ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2953,14 +2880,6 @@ PrefabInstance:
     - target: {fileID: 8398956735505658503, guid: 4541fce58607ebf40b449b3e590460ea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8398956736319010379, guid: 4541fce58607ebf40b449b3e590460ea, type: 3}
-      propertyPath: m_Name
-      value: _BO Hitbox
-      objectReference: {fileID: 0}
-    - target: {fileID: 8398956736319010379, guid: 4541fce58607ebf40b449b3e590460ea, type: 3}
-      propertyPath: m_TagString
-      value: Breakable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4541fce58607ebf40b449b3e590460ea, type: 3}

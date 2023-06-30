@@ -31,6 +31,7 @@ public class BreakableObject : MonoBehaviour
             Instantiate(_brokenModelPrefab, transform.parent.gameObject.transform, false);
             Destroy(_regularModelInstance);
             _isTriggered = true;
+            GetComponent<AudioSource>().Play();
         }
     }
 }
