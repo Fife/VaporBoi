@@ -9,16 +9,16 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 6b2a1b966f4a65b4c9b687d0077ab720
   - enabled: 1
-    path: Assets/Scenes/LevelJB.unity
+    path: Assets/Scenes/The Crime.unity
     guid: 89c6f1a914368a84195ac3f25124741d
   - enabled: 1
     path: Assets/Scenes/Z_G.unity
     guid: 3f90325fd566c8444b42dcc4de44f010
   - enabled: 1
-    path: Assets/Scenes/Z_A.unity
+    path: Assets/Scenes/The Arch.unity
     guid: 91676a62e3cdc0e44a0c3847af9bfefa
   - enabled: 1
-    path: Assets/Scenes/Z_F.unity
+    path: Assets/Scenes/The Nail.unity
     guid: d67800bb2dd1d454e87bde014976e438
   - enabled: 0
     path: Assets/Scenes/Z_C.unity
