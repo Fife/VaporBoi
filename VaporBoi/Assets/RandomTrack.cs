@@ -15,7 +15,7 @@ public class RandomTrack : MonoBehaviour
         _currentTrack = _audioManager.GetRandomSound;
         _audioSource.clip = _currentTrack;
         _audioSource.spatialize = true;
-        _audioSource.spatialBlend = 1f;
+        _audioSource.spatialBlend = 0.75f;
         _audioSource.Play();
 
     }
