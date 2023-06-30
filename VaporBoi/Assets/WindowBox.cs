@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WindowBox : MonoBehaviour
 {
-
+    [SerializeField] GameObject _windowPrefab; 
     private bool _isTriggered = false;
     public bool IsTriggered { get { return _isTriggered; } }
     // Start is called before the first frame update
@@ -28,6 +28,8 @@ public class WindowBox : MonoBehaviour
             //Delete the Paper
             Destroy(other.gameObject);
             _isTriggered = true;
+            Instantiate(_windowPrefab, GetComponent<Transform>());
+            GetComponent<AudioSource>().Play();
         }
     }
 }

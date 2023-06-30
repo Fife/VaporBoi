@@ -142,6 +142,7 @@ public class CourseManager : MonoBehaviour
         Debug.Log("Objects Destroyed: " + _objectsDestroyed);
         Debug.Log("Window Delivery: " + _windowDelivery);
         Debug.Log("Penalty Distance: " + _penaltyDistance);
+        if (GameObject.Find("LevelManager") == null){ return ;}
         GameObject.Find("LevelManager").GetComponent<LevelManager>().LoadNextLevel();
         // Get the component
         //GameObject camera = GameObject.Find("Main Camera");
