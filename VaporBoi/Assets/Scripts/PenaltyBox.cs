@@ -10,7 +10,8 @@ public class PenaltyBox : MonoBehaviour
     private bool _isTriggered = false;
     public bool IsTriggered { get { return _isTriggered; } }
 
-    private float _enteredDistance, _exitedDistance = 0f;
+    private float _enteredDistance =0f;
+    private float _exitedDistance = 0f;
     private float _totalDistance = 0f;
     public float PenaltyDistance { get { return _totalDistance; } }
 
@@ -55,6 +56,8 @@ public class PenaltyBox : MonoBehaviour
         if(other.gameObject.tag == "Player") 
         { 
             _enteredDistance = other.gameObject.GetComponent<DistanceCalculator>().Distance;
+            Debug.Log("Player Entered");
+            _isTriggered = true;
         }
         
     }
@@ -65,6 +68,7 @@ public class PenaltyBox : MonoBehaviour
         { 
             _exitedDistance = other.gameObject.GetComponent<DistanceCalculator>().Distance;
             _totalDistance = _exitedDistance - _enteredDistance;
+            Debug.Log("Player Exitied");
         }
     }
 }

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60523e0647cc6ab43acc73cb266a32a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 988029947}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _paperPrefab: {fileID: 1216441693330875800, guid: 26d9a22ec324f784d80a7474906395bf, type: 3}
-  _im: {fileID: 0}
+  _im: {fileID: 988029947}
 --- !u!1 &629930215
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4253f32900bcc4d499d675566142ded0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 988029947}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -843,6 +843,7 @@ GameObject:
   - component: {fileID: 8872650179376217552}
   - component: {fileID: 8872650179376217553}
   - component: {fileID: 8872650179376217558}
+  - component: {fileID: 988029947}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -897,6 +898,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ActionAssets:
   - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!114 &988029947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8872650179376217559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
 --- !u!1 &8872650179683891087
 GameObject:
   m_ObjectHideFlags: 0
