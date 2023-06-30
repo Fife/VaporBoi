@@ -117,7 +117,7 @@ public class CourseManager : MonoBehaviour
                 Debug.Log("Post Game Display");
                 PostGameDisplayTrigger();
                 _gameState = GameState.Ended;
-                _isEnded = true;
+                //_isEnded = true;
                 break;
             }
             default:
