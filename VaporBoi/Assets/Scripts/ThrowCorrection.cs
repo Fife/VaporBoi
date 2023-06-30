@@ -123,7 +123,9 @@ public class ThrowCorrection : MonoBehaviour
         _rb.velocity = _averageAngularVelocity;
         _rb.angularVelocity = _averageAngularVelocity;
 
+        if (GameObject.FindGameObjectWithTag("Player") == null) { return; }
         GameObject.FindGameObjectWithTag("Player").GetComponent<ThrowTracker>().IncrementThrows();
+
         
     }
 }
